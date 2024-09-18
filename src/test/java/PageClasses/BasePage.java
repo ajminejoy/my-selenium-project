@@ -75,6 +75,4 @@ public class BasePage {
         // Switch back to the original tab
         driver.switchTo().window(originalWindow);
     }
-
-    // Test comment to verify Git push
 }

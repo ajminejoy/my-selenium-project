@@ -13,12 +13,6 @@ public class MetaMix3dHomePage extends BasePage {
     }
 
     //Locators
-    By homeTab = By.xpath("//p[text()='Home']");
-    By ourWorksTab = By.xpath("//p[text()='Our Works']");
-    By pixelGamesTab = By.xpath("//p[text()='PixelGames']");
-
-    By aboutTab = By.xpath("//p[text()='About']");
-    By contactTab = By.xpath("//p[text()='Contact']");
     By metaMix3dHeader = By.xpath("//h1[text()='Metamixed']");
     By metaMix3dDesc = By.xpath("//span[contains(text(), 'Creating top quality')]");
     By downloadOnAppStore = By.xpath("(//img[contains(@alt, 'Download on the App Store')])[1]");
@@ -28,7 +22,6 @@ public class MetaMix3dHomePage extends BasePage {
     By worksInUnity3D = By.xpath("//p[text()='Works in Unity 3D']");
     By portFolio = By.xpath("//p[text()='Portfolio']");
     By aboutMetaMix3dHeader = By.xpath("//span[text()='About Metamixed']");
-    By aboutMetaMix3dHeaderDescTitle = By.xpath("//p[text()='Your Source for 3D Assets in games and web contents']");
     By aboutMetaMix3dDesc1 = By.xpath("//div/p/span[contains(text(), 'Our 3D game asset')]");
     By aboutMetaMix3dDesc2 = By.xpath("//div/p/span[contains(text(), 'Our team of experienced 3D artists')]");
     By aboutMetaMix3dDesc3 = By.xpath("//div/p/span[contains(text(), 'At our company')]");
@@ -68,45 +61,46 @@ public class MetaMix3dHomePage extends BasePage {
     By metaMix3dTMSectionContactHeader = By.xpath("//span[text()='An Immersive Virtual Reality Experience']/following::p[text()='Contact']");
     By metaMix3dTMSectionContactEmail = By.xpath("//a[text()='Info@metamix3d.com']");
     By metaMix3dTMSectionContactLocation = By.xpath("//span[text()='Austin, TX, 78738']");
-    By metaMix3dTMSectionNavigationHeader = By.xpath("//p[text()='Navigation']");
     By metaMix3dTMSectionNavigationGames = By.xpath("//span[text()='Games']");
     By metaMix3dTMSectionNavigationCareers = By.xpath("//span[text()='Careers']");
     By metaMix3dTMSectionNavigationAbout = By.xpath("//span[text()='About']");
     By metaMix3dTMSectionNavigationContact = By.xpath("//span[text()='About']/following::span[text()='Contact']");
     By metaMix3dTMSectionNavigationPrivacy = By.xpath("//span[text()='Privacy Policy']");
     By metaMix3dTMSectionNavigationTerms = By.xpath("//span[text()='Terms & Conditions']");
-    By metaMix3dTMSectionSocialHeader = By.xpath("//p[text()='Social']");
     By metaMix3dTMSectionSocialDiscord = By.xpath("//span[text()='Discord']");
     By metaMix3dTMSectionSocialTwitch = By.xpath("//span[text()='Twitch']");
     By metaMix3dTMSectionSocialFacebook = By.xpath("//span[text()='Facebook']");
     By metaMix3dTMSectionSocialYouTube = By.xpath("//span[text()='YouTube']");
     By metaMix3dTMSectionSocialTwitter = By.xpath("//span[text()='Twitter']");
     By metaMix3dTMSectionSocialLinkedIn = By.xpath("//span[text()='LinkedIn']");
-    By metaMix3dTMSectionFindUsOnHeader = By.xpath("//p[text()='Find Us On']");
     By metaMix3dTMSectionFindUsOnAppStore = By.xpath("//p[text()='Find Us On']/following::img[@alt='Download on the App Store']");
     By metaMix3dTMSectionFindUsOnGooglePlay = By.xpath("//p[text()='Find Us On']/following::img[@alt='Get in on Google Play']");
     By metaMix3dTMSectionCopyright = By.xpath("//span[text()='© 2024 by MetaMix3D LLC']");
 
     // Methods
 
+    public By getTabByName(String tabName) {
+        return By.xpath("//p[text()='" + tabName + "']");
+    }
+
     public boolean verifyHomeTabDisplayed() {
-        return isElementVisible(homeTab);
+        return isElementVisible(getTabByName("Home"));
     }
 
     public boolean verifyOurWorksTabDisplayed() {
-        return isElementVisible(ourWorksTab);
+        return isElementVisible(getTabByName("Our Works"));
     }
 
     public boolean verifyPixelGamesTabDisplayed() {
-        return isElementVisible(pixelGamesTab);
+        return isElementVisible(getTabByName("PixelGames"));
     }
 
     public boolean verifyAboutTabDisplayed() {
-        return isElementVisible(aboutTab);
+        return isElementVisible(getTabByName("About"));
     }
 
     public boolean verifyContactTabDisplayed() {
-        return isElementVisible(contactTab);
+        return isElementVisible(getTabByName("Contact"));
     }
 
     public boolean verifyMetaMix3dHeaderDisplayed() {
@@ -131,7 +125,7 @@ public class MetaMix3dHomePage extends BasePage {
 
         return areElementsVisible(
                 aboutMetaMix3dHeader,
-                aboutMetaMix3dHeaderDescTitle,
+                getTabByName("Your Source for 3D Assets in games and web contents"),
                 aboutMetaMix3dDesc1,
                 aboutMetaMix3dDesc2,
                 aboutMetaMix3dDesc3,
@@ -227,7 +221,7 @@ public class MetaMix3dHomePage extends BasePage {
     public boolean verifyMetaMix3dTMSectionNavigation() {
 
         return areElementsVisible(
-                metaMix3dTMSectionNavigationHeader,
+                getTabByName("Navigation"),
                 metaMix3dTMSectionNavigationGames,
                 metaMix3dTMSectionNavigationCareers,
                 metaMix3dTMSectionNavigationAbout,
@@ -237,13 +231,13 @@ public class MetaMix3dHomePage extends BasePage {
 
     public boolean verifyMetaMix3dTMSectionSocial() {
 
-        return isElementVisible(metaMix3dTMSectionSocialHeader);
+        return isElementVisible(getTabByName("Social"));
     }
 
     public boolean verifyMetaMix3dTMSectionFindUsOn() {
 
         return areElementsVisible(
-                metaMix3dTMSectionFindUsOnHeader,
+                getTabByName("Find Us On"),
                 metaMix3dTMSectionFindUsOnAppStore,
                 metaMix3dTMSectionFindUsOnGooglePlay
         );
