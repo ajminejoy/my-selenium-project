@@ -16,7 +16,6 @@ public class BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    // Method to check if an element is visible
     public boolean isElementVisible(By locator) {
         try {
             WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -27,7 +26,6 @@ public class BasePage {
         }
     }
 
-    // Method to check if multiple elements are visible
     public boolean areElementsVisible(By... locators) {
         for (By locator : locators) {
             if (!isElementVisible(locator)) {
@@ -38,7 +36,6 @@ public class BasePage {
         return true;
     }
 
-    // Method to scroll to an element
     public void scrollToElement(By locator) {
         WebElement element = driver.findElement(locator);
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -46,11 +43,21 @@ public class BasePage {
     }
 
     public void click(By locator) {
-        WebElement element = driver.findElement(locator);
-        if (isElementVisible(locator)) {
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
             element.click();
-        } else {
-            throw new NoSuchElementException("Element is not visible");
+        } catch (StaleElementReferenceException e) {
+            System.out.println("StaleElementReferenceException: " + e.getMessage());
+            click(locator);
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("Element not found: " + e.getMessage());
+        } catch (ElementClickInterceptedException e) {
+            System.out.println("ElementClickInterceptedException: " + e.getMessage());
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", driver.findElement(locator));
+        } catch (Exception e) {
+            System.out.println("An unexpected error occurred while clicking the element: " + e.getMessage());
         }
     }
 
@@ -74,5 +81,10 @@ public class BasePage {
 
         // Switch back to the original tab
         driver.switchTo().window(originalWindow);
+    }
+
+    public void waitForButtonToBeEnabled(By buttonLocator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(buttonLocator));
     }
 }

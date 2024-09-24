@@ -12,7 +12,7 @@ public class BaseTest {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
-    protected String baseUrl = "https://www.metamix3d.com/";
+    protected String baseUrl = "https://www.lemonade.com/";
 
     @BeforeClass
     public void setUp() {

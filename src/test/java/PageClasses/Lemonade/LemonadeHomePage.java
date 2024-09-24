@@ -13,10 +13,9 @@ public class LemonadeHomePage extends BasePage {
 
     //Locators
     By givebackTab = By.xpath("//a[text()='My Account']/preceding::a[text()='Giveback']");
-    By rentersInsuranceHeader = By.xpath("//h1[contains(normalize-space(text()), 'Forget Everything')]");
-    By rentersInsuranceDesc1 = By.xpath("//p[contains(normalize-space(text()), 'Instant everything')]");
+    By insuranceHeader = By.xpath("//h1[contains(normalize-space(text()), 'Forget Everything')]");
+    By insuranceDesc = By.xpath("//p[contains(normalize-space(text()), 'Instant everything')]");
     By checkOurPricesButton = By.xpath("//a[text()='Check our Prices']");
-    By rentersInsuranceDesc2 = By.xpath("//h2[normalize-space(text())='Most loved renters insurance in America']");
 
 
     //Methods
@@ -25,8 +24,27 @@ public class LemonadeHomePage extends BasePage {
         return By.xpath("//a[text()='" + tabName + "']");
     }
 
-    public boolean verifyRentersTab() {
+    public boolean verifyTabsVisible() {
 
-        return isElementVisible(getTabByName("Renters"));
+        return areElementsVisible(
+                getTabByName("Renters"),
+                getTabByName("Homeowners"),
+                getTabByName("Car"),
+                getTabByName("Pet"),
+                getTabByName("Life"),
+                givebackTab
+        );
+    }
+
+    public boolean verifyInsuranceHeaderDescVisible() {
+
+        return areElementsVisible(
+                insuranceHeader,
+                insuranceDesc
+        );
+    }
+
+    public void clickOnCheckOurPricesButton() {
+        click(checkOurPricesButton);
     }
 }
