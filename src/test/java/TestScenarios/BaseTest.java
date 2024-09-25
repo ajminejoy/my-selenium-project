@@ -16,7 +16,7 @@ public class BaseTest {
 
     @BeforeClass
     public void setUp() {
-        // Set the path to your WebDriver executable
+
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\ajstr\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
