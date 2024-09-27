@@ -20,8 +20,8 @@ public class MetaMix3dPrivacyPageTest extends BaseTest {
 
     @Test
     public void verifyPrivacyPolicyHeader() {
-        // Navigate to Privacy Policy page from Home Page
-        homePage.clickOnPrivacyPolicy(); // Assuming this method navigates to the Privacy Policy page
+
+        homePage.clickOnPrivacyPolicy();
 
         // Verify the Privacy Policy header
         boolean isPrivacyPolicyHeaderVisible = privacyPolicyPage.verifyPrivacyPolicyHeader();

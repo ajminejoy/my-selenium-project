@@ -20,10 +20,9 @@ public class MetaMix3dTermsConditionsTest extends BaseTest {
 
     @Test
     public void verifyTermsConditionsHeader() {
-        // Navigate to Privacy Policy page from Home Page
-        homePage.clickOnTermsAndConditions(); // Assuming this method navigates to the Privacy Policy page
 
-        // Verify the Privacy Policy header
+        homePage.clickOnTermsAndConditions();
+
         boolean isTermsConditionsHeaderVisible = termsConditionsPage.verifyTermsConditionsHeader();
         Assert.assertTrue(isTermsConditionsHeaderVisible, "Privacy Policy header is not visible");
     }
