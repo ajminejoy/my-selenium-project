@@ -67,6 +67,8 @@ public class BasePage {
         for (String windowHandle : driver.getWindowHandles()) {
             if (!windowHandle.equals(originalWindow)) {
                 driver.switchTo().window(windowHandle);
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
                 break;
             }
         }
@@ -81,6 +83,9 @@ public class BasePage {
 
         // Switch back to the original tab
         driver.switchTo().window(originalWindow);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
     }
 
     public void waitForButtonToBeEnabled(By buttonLocator) {
