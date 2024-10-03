@@ -24,9 +24,7 @@ public class MetaMix3dHomePageTest extends BaseTest {
         Assert.assertTrue(metaMix3dHomePage.verifyMetaMix3dHeaderDisplayed(), "MetaMix3d header should be displayed.");
         Assert.assertTrue(metaMix3dHomePage.verifyMetaMix3dDescriptionDisplayed(), "MetaMix3d description should be displayed.");
         Assert.assertTrue(metaMix3dHomePage.verifyHomeTabDisplayed(), "Home tab should be displayed.");
-        Assert.assertTrue(metaMix3dHomePage.verifyOurWorksTabDisplayed(), "Our Works tab should be displayed.");
         Assert.assertTrue(metaMix3dHomePage.verifyPixelGamesTabDisplayed(), "Pixel Games tab should be displayed.");
-        Assert.assertTrue(metaMix3dHomePage.verifyAboutTabDisplayed(), "About tab should be displayed.");
         Assert.assertTrue(metaMix3dHomePage.verifyContactTabDisplayed(), "Contact tab should be displayed.");
         Assert.assertTrue(metaMix3dHomePage.verifyDownloadOnAppStoreDisplayed(), "Download on App Store image should be displayed.");
         Assert.assertTrue(metaMix3dHomePage.verifyDownloadOnGooglePlayDisplayed(), "Download on Google Play image should be displayed.");

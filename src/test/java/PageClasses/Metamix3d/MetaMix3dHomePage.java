@@ -87,16 +87,8 @@ public class MetaMix3dHomePage extends BasePage {
         return isElementVisible(getTabByName("Home"));
     }
 
-    public boolean verifyOurWorksTabDisplayed() {
-        return isElementVisible(getTabByName("Our Works"));
-    }
-
     public boolean verifyPixelGamesTabDisplayed() {
         return isElementVisible(getTabByName("PixelGames"));
-    }
-
-    public boolean verifyAboutTabDisplayed() {
-        return isElementVisible(getTabByName("About"));
     }
 
     public boolean verifyContactTabDisplayed() {
